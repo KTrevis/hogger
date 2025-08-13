@@ -1,0 +1,1 @@
+- Heroic Strike: does not increase the damage of the next auto attack anymore, but inflicts direct damage. Its cost is now 30 rage.

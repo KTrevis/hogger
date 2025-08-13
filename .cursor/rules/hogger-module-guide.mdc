@@ -1,5 +1,5 @@
 ---
-alwaysApply: true
+title: Hogger Module Guide
 ---
 
 # Module Hogger - Guide TSWoW
@@ -17,4 +17,8 @@ Le module hogger contient :
 
 ## Règle Importante : Consulter les Exemples
 
-**TOUJOURS** consulter le dossier [examples/](mdc:cran-archaeologist/examples/) pour t'inspirer des bonnes pratiques et des patterns existants avant de répondre aux questions ou de créer du code.
+**TOUJOURS** consulter le dossier examples pour t'inspirer des bonnes pratiques et des patterns existants avant de répondre aux questions ou de créer du code.
+
+## Création de Nouvelles Règles
+
+**IMPORTANT** : Toutes les nouvelles règles Cursor doivent être créées dans le dossier [modules/hogger/.cursor/rules/](mdc:modules/hogger/.cursor/rules/).
