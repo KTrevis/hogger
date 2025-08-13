@@ -1,0 +1,20 @@
+---
+alwaysApply: true
+---
+
+# Module Hogger - Guide TSWoW
+
+## Contexte du Projet
+
+Ce projet est un **mod de World of Warcraft (version 3.3.5)** qui utilise **TSWoW** (TypeScript WoW), un framework permettant de créer des mods WoW en utilisant TypeScript.
+
+## Structure du Module
+
+Le module hogger contient :
+
+- [datascripts/](mdc:modules/hogger/datascripts/) - Scripts de données (items, NPCs, sorts, etc.)
+- [livescripts/](mdc:modules/hogger/livescripts/) - Scripts en temps réel (événements, comportements, etc.)
+
+## Règle Importante : Consulter les Exemples
+
+**TOUJOURS** consulter le dossier [examples/](mdc:cran-archaeologist/examples/) pour t'inspirer des bonnes pratiques et des patterns existants avant de répondre aux questions ou de créer du code.
