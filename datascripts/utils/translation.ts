@@ -1,10 +1,9 @@
 import { Language, Languages } from "wow/data/dbc/Localization";
-import { Spell } from "wow/wotlk/std/Spell/Spell";
 
-type TranslationMap = Partial<Record<Language, (spell: Spell) => void>>;
+type TranslationMap<T> = Partial<Record<Language, (item: T) => void>>;
 
-export function translate(spell: Spell, fn: TranslationMap) {
+export function translate<T>(item: T, fn: TranslationMap<T>) {
   for (const lang of Languages) {
-    fn[lang]?.(spell);
+    fn[lang]?.(item);
   }
 }

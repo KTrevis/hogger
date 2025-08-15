@@ -1,3 +1,5 @@
+import { Classes } from "./classes/classes";
+
 export function Main(events: TSEvents) {
-    // Register your events here!
+  Classes.main(events);
 }

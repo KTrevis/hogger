@@ -1,6 +1,7 @@
 ---
 alwaysApply: true
 ---
+
 # Module Hogger - Guide TSWoW
 
 ## Contexte du Projet
@@ -17,6 +18,23 @@ Le module hogger contient :
 ## Règle Importante : Consulter les Exemples
 
 **TOUJOURS** consulter le dossier examples pour t'inspirer des bonnes pratiques et des patterns existants avant de répondre aux questions ou de créer du code.
+
+## Gestion des Erreurs de Linter
+
+**RÈGLE CRITIQUE** : Avant de considérer qu'une tâche est terminée, tu **DOIS** :
+
+1. Vérifier qu'il n'y a **AUCUNE erreur de linter** dans les fichiers modifiés
+2. Utiliser l'outil `read_lints` pour examiner les erreurs
+3. Corriger toutes les erreurs trouvées
+
+**INTERDICTION ABSOLUE** : Utiliser un cast de type (comme `as any`, `as SomeType`, etc.) pour "résoudre" une erreur de linter n'est **PAS une solution acceptable**. Tu dois comprendre et résoudre la cause réelle du problème.
+
+**Processus obligatoire** :
+
+- Après chaque modification de fichier → Vérifier les lints
+- Si des erreurs existent → Les corriger proprement
+- Répéter jusqu'à ce qu'il n'y ait plus d'erreurs
+- Seulement alors considérer la tâche comme terminée
 
 ## Création de Nouvelles Règles
 
