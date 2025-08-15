@@ -7,7 +7,9 @@ const HEROIC_STRIKE_IDS = [
 ] as const;
 
 function modHeroicStrike(spell: Spell) {
-  spell.Attributes.NEXT_SWING.set(false).Power.CostBase(30 * 10);
+  spell.Attributes.NEXT_SWING.set(false)
+    .Power.CostBase.set(30 * 10)
+    .Cooldown.Time.set(1000);
 }
 
 for (const id of HEROIC_STRIKE_IDS) {

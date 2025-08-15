@@ -1,12 +1,25 @@
+import { Languages, Language } from "wow/data/dbc/Localization";
 import { std } from "wow/wotlk";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
+import { translate } from "../../utils/translation";
 
 const CHARGE_IDS = [100, 6178, 11578];
 
+function english(spell: Spell) {
+  const tooltip = spell.Description.enGB
+    .get()
+    .replace("Cannot be used in combat.", "");
+  spell.Description.enGB.set(tooltip);
+}
+
 function modCharge(spell: Spell) {
   spell.Attributes.CANNOT_USE_IN_COMBAT.set(false)
-    .ShapeshiftMask.Exclude(0)
-    .ShapeshiftMask.Include(0);
+    .ShapeshiftMask.Exclude.set(BigInt(0))
+    .ShapeshiftMask.Include.set(BigInt(0));
+
+  translate(spell, {
+    enGB: english,
+  });
 }
 
 for (const id of CHARGE_IDS) {

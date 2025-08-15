@@ -19,3 +19,16 @@ VICTORY_RUSH_HEALING_PASSIVE.Effects.get(0)
   .Type.APPLY_AURA.set()
   .Aura.PROC_TRIGGER_SPELL.set()
   .TriggeredSpell.set(HEALING_SPELL.ID);
+
+const VICTORY_RUSH_LEGENDARY = CreatorHelper.createItem(
+  "victory-rush-legendary"
+);
+
+VICTORY_RUSH_LEGENDARY.InventoryType.FINGER.set()
+  .Name.enGB.set("PLACEHOLDER NAME VICTORY RUSH LEGENDARY")
+  .Quality.ORANGE.set()
+  .Spells.addGet()
+  .Spell.set(VICTORY_RUSH_HEALING_PASSIVE.ID)
+  .Trigger.ON_EQUIP.set();
+
+HEALING_SPELL.InlineScripts.OnCast(() => console.log("cast"));

@@ -1,1 +1,9 @@
-- Heroic Strike: does not increase the damage of the next auto attack anymore, but inflicts direct damage. Its cost is now 30 rage.
+- Heroic Strike
+  - Does not increase the damage of the next auto attack anymore, but inflicts direct damage.
+  - Cost increased from 15 to 30 rage.
+- Charge
+  - Can now be used in combat
+  - Can now be used in any stance
+- Battle Shout
+  - Now grants 20 rage
+  - Now has a cooldown of 1 minute
