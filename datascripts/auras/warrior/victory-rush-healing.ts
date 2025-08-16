@@ -2,6 +2,7 @@ import { Spell } from "wow/wotlk/std/Spell/Spell";
 import { MODULE_NAME } from "../../utils/constants";
 import { CreatorHelper } from "../../utils/creator-helper";
 import { translate } from "../../utils/translation";
+import { std } from "wow/wotlk";
 
 export const VICTORY_RUSH_FLAG_TRIGGER_ON_KILL = CreatorHelper.createSpell(
   "victory-rush-healing-legendary-passive",
@@ -35,4 +36,17 @@ namespace Translation {
 
 translate(VICTORY_RUSH_FLAG_TRIGGER_ON_KILL, {
   enGB: Translation.english,
+});
+
+const VICTORY_RUSH_SPELL = std.Spells.load(34428);
+
+VICTORY_RUSH_SPELL.InlineScripts.OnCast((spell) => {
+  const player = ToPlayer(spell.GetCaster());
+  const flagID = UTAG("hogger", "victory-rush-healing-flag");
+  const healing20PctID = UTAG("hogger", "victory-rush-healing-20-pct");
+
+  if (!player || !player.HasAura(flagID)) {
+    return;
+  }
+  player.CastSpell(player, healing20PctID, true);
 });
