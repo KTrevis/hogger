@@ -48,8 +48,8 @@ export const HERB_COLLECTION_QUEST = std.Quests.create(
 );
 
 HERB_COLLECTION_QUEST.Objectives.Item.add(765, 5)
-  .Objectives.Item.add(2447, 5)
-  .MinLevel.set(4)
+  .Objectives.Item.add(2447, 3)
+  .MinLevel.set(5)
   .QuestLevel.set(8)
   .Rewards.Difficulty.set(5)
   .Rewards.Money.set(300) // 3 silver
