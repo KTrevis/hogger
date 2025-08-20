@@ -6,6 +6,7 @@ export const HEALING_20_PCT = CreatorHelper.createSpell(
 );
 
 HEALING_20_PCT.Tags.addUnique(MODULE_NAME, "victory-rush-healing-20-pct")
+  .Name.enGB.set("Healing 20%")
   .Effects.addGet()
   .Type.HEAL_PCT.set()
   .HealPctBase.set(20)

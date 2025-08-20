@@ -3,21 +3,29 @@ import { MODULE_NAME } from "../../utils/constants";
 import { CreatorHelper } from "../../utils/creator-helper";
 import { translate } from "../../utils/translation";
 import { std } from "wow/wotlk";
+import { HEALING_20_PCT } from "../../utils/auras/healing-20-percent";
 
 export const VICTORY_RUSH_FLAG_TRIGGER_ON_KILL = CreatorHelper.createSpell(
   "victory-rush-healing-legendary-passive",
   33746
 );
 
+const VICTORY_RUSH_SPELL = std.Spells.load(34428);
 const HEALING_FLAG = CreatorHelper.createSpell("victory-rush-healing-flag");
 
 HEALING_FLAG.Tags.addUnique(MODULE_NAME, "victory-rush-healing-flag")
   .Attributes.HIDE_FROM_AURA_BAR.set(true)
   .Cooldown.Time.set(0)
   .Duration.setSimple(20 * 1000)
-  .Effects.get(0)
+  .Effects.addGet()
   .Type.APPLY_AURA.set()
-  .Aura.DUMMY.set();
+  .Aura.PROC_TRIGGER_SPELL.set()
+  .TriggeredSpell.set(HEALING_20_PCT.ID)
+  .ImplicitTargetA.UNIT_CASTER.set();
+
+HEALING_FLAG.Proc.SpellFamily.set("WARRIOR")
+  .Proc.ClassMask.A.set(VICTORY_RUSH_SPELL.ClassMask.A.get())
+  .Proc.TriggerMask.DONE_PERIODIC.set(true);
 
 VICTORY_RUSH_FLAG_TRIGGER_ON_KILL.Proc.getSQL().Cooldown.set(0);
 
@@ -36,17 +44,4 @@ namespace Translation {
 
 translate(VICTORY_RUSH_FLAG_TRIGGER_ON_KILL, {
   enGB: Translation.english,
-});
-
-const VICTORY_RUSH_SPELL = std.Spells.load(34428);
-
-VICTORY_RUSH_SPELL.InlineScripts.OnCast((spell) => {
-  const player = ToPlayer(spell.GetCaster());
-  const flagID = UTAG("hogger", "victory-rush-healing-flag");
-  const healing20PctID = UTAG("hogger", "victory-rush-healing-20-pct");
-
-  if (!player || !player.HasAura(flagID)) {
-    return;
-  }
-  player.CastSpell(player, healing20PctID, true);
 });
