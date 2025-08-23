@@ -17,7 +17,7 @@ VICTORY_RUSH_HEALING.Proc.mod((x) =>
     .PhaseMask.HIT.set(true)
     .TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(true)
 )
-  .Family.set(4)
+  .Family.set(VICTORY_RUSH_SPELL.Family.get())
   .ClassMask.set(0, 0, 0)
   .Duration.set(INFINITE_DURATION)
   .Effects.addMod((x) =>
@@ -25,7 +25,6 @@ VICTORY_RUSH_HEALING.Proc.mod((x) =>
       .Aura.PROC_TRIGGER_SPELL.set()
       .TriggeredSpell.set(HEALING_20_PCT.ID)
       .ImplicitTargetA.UNIT_CASTER.set()
-      .ImplicitTargetB.set(0)
   );
 
 namespace Translation {

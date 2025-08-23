@@ -11,15 +11,11 @@ enum STATS {
 
 const LIGHT_ARMOR_KIT_ENCHANT = std.Enchantments.load(15);
 
-LIGHT_ARMOR_KIT_ENCHANT.Effects.clearAll();
-LIGHT_ARMOR_KIT_ENCHANT.Effects.addMod((eff) =>
-  eff.Type.ADD_ARMOR.set().MinArmor.set(STATS.ARMOR)
-).Effects.addMod((eff) =>
-  eff.Type.STAT.set().Stat.set("STAMINA").MinStat.set(STATS.STAMINA)
-);
-ItemInventoryType
-
-console.log([5, 7, 8, 10, 20].reduce((m, i) => m | (1 << i), 0));
+LIGHT_ARMOR_KIT_ENCHANT.Effects.clearAll()
+  .Effects.addMod((eff) => eff.Type.ADD_ARMOR.set().MinArmor.set(STATS.ARMOR))
+  .Effects.addMod((eff) =>
+    eff.Type.STAT.set().Stat.set("STAMINA").MinStat.set(STATS.STAMINA)
+  );
 
 namespace EnchantTranslation {
   export function english(enchant: Enchantment) {

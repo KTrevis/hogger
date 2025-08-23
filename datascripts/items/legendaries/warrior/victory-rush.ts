@@ -1,10 +1,11 @@
-import { CreatorHelper } from "../../../utils/creator-helper";
 import { ItemTemplate } from "wow/wotlk/std/Item/ItemTemplate";
 import { translate } from "../../../utils/translation";
 import { MODULE_NAME } from "../../../utils/constants";
 import { VICTORY_RUSH_HEALING } from "../../../auras/warrior/victory-rush-healing";
+import { std } from "wow/wotlk";
 
-const VICTORY_RUSH_LEGENDARY = CreatorHelper.createItem(
+const VICTORY_RUSH_LEGENDARY = std.Items.create(
+  MODULE_NAME,
   "victory-rush-legendary"
 );
 
@@ -15,9 +16,9 @@ VICTORY_RUSH_LEGENDARY.InventoryType.FINGER.set()
     "victory-rush-legendary-icon",
     "inv_jewelry_ring_32"
   )
-  .Spells.addGet()
-  .Spell.set(VICTORY_RUSH_HEALING.ID)
-  .Trigger.ON_EQUIP.set();
+  .Spells.addMod((spell) =>
+    spell.Spell.set(VICTORY_RUSH_HEALING.ID).Trigger.ON_EQUIP.set()
+  );
 
 namespace ItemTranslation {
   export function english(item: ItemTemplate) {
