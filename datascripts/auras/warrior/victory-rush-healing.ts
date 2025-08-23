@@ -6,19 +6,26 @@ const VICTORY_RUSH_SPELL = std.Spells.load(34428);
 
 export const VICTORY_RUSH_HEALING = std.Spells.create(
   MODULE_NAME,
-  "victory-rush-healing",
-  20500
-).Name.enGB.set("Victory Rush Healing");
+  "victory-rush-healing"
+);
 
-VICTORY_RUSH_HEALING.Proc.TriggerMask.set("DONE_SPELL_MELEE_DMG_CLASS");
-VICTORY_RUSH_HEALING.Proc.ClassMask.B.set(VICTORY_RUSH_SPELL.ClassMask.B.get());
-
-VICTORY_RUSH_HEALING.InlineScripts.OnProc(() => console.log("PROC"));
-VICTORY_RUSH_HEALING.InlineScripts.OnApply(() => console.log("APPLY"));
-
-VICTORY_RUSH_HEALING.Effects.get(0)
-  .ClassMask.B.set(VICTORY_RUSH_SPELL.ClassMask.B.get())
-  .ClassMask.A.set(0)
-  .TriggerSpell.set(HEALING_20_PCT.ID);
-
-console.log(VICTORY_RUSH_HEALING.objectify());
+VICTORY_RUSH_HEALING.Name.enGB
+  .set("Victory Rush Healing")
+  .Proc.mod((x) =>
+    x.SpellFamily.set(VICTORY_RUSH_SPELL.Family.get())
+      .ClassMask.B.set(VICTORY_RUSH_HEALING.ClassMask.B.get())
+      .PhaseMask.HIT.set(true)
+      .TriggerMask.DONE_SPELL_MELEE_DMG_CLASS.set(true)
+  )
+  .Family.set(4)
+  .ClassMask.set(0, 0, 0)
+  .Duration.set(INFINITE_DURATION)
+  .Effects.addMod((x) =>
+    x.Type.APPLY_AURA.set()
+      .Aura.PROC_TRIGGER_SPELL.set()
+      .TriggeredSpell.set(HEALING_20_PCT.ID)
+      .ImplicitTargetA.UNIT_CASTER.set()
+      .ImplicitTargetB.set(0)
+      .ChainTargets.set(0)
+      .ChainAmplitude.set(1)
+  );
