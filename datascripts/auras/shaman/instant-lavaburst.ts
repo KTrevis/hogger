@@ -5,7 +5,7 @@ import { translate } from "../../utils/translation";
 
 const LAVA_BURST = std.Spells.load(51505);
 
-const INSTANT_LAVABURST = std.Spells.create(
+export const INSTANT_LAVABURST = std.Spells.create(
   MODULE_NAME,
   "instant-lava-burst-aura"
 );
