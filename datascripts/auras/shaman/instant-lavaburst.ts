@@ -35,5 +35,3 @@ namespace Translation {
 translate(INSTANT_LAVABURST, {
   enGB: Translation.english,
 });
-
-console.log(INSTANT_LAVABURST.objectify());

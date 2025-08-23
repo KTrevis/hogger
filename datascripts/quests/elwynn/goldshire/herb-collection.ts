@@ -4,7 +4,7 @@ import { Quest } from "wow/wotlk/std/Quest/Quest";
 import { translate } from "../../../utils/translation";
 import { MATHIAS_BARRELBEARD } from "../../../npc/elwynn/goldshire/mathias-barrelbeard";
 import { AreaIDs } from "../../../utils/AreaIDs";
-import { NOGGENFOGGER_ELIXIR } from "../../../items/noggenfogger";
+import { NOGGENFOGGER_ELIXIR } from "../../../items/misc/noggenfogger";
 
 namespace Translation {
   export function english(quest: Quest) {
