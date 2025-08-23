@@ -1,14 +1,14 @@
 export namespace LevelCap {
   const MAX_LEVEL = 10;
+  const LEVEL_TO_APPLY_XP_DEBUFF = MAX_LEVEL - 10;
 
   function applyDebuffXP(player: TSPlayer) {
-    const debuffID = UTAG("hogger", "xp-debuff");
-    const levelToApplyDebuff = MAX_LEVEL - 10;
+    const DEBUFF_ID = UTAG("hogger", "xp-debuff");
 
-    if (player.GetLevel() >= levelToApplyDebuff) {
-      player.AddAura(debuffID, player);
+    if (player.GetLevel() >= LEVEL_TO_APPLY_XP_DEBUFF) {
+      player.AddAura(DEBUFF_ID, player);
     } else {
-      player.RemoveAura(debuffID);
+      player.RemoveAura(DEBUFF_ID);
     }
   }
 
@@ -26,7 +26,13 @@ export namespace LevelCap {
       applyDebuffXP(player);
       blockXP(player);
     });
+
     events.Player.OnLevelChanged((player) => {
+      applyDebuffXP(player);
+      blockXP(player);
+    });
+
+    events.Player.OnReload((player) => {
       applyDebuffXP(player);
       blockXP(player);
     });
