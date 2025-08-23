@@ -3,7 +3,7 @@ import { MODULE_NAME } from "../../../utils/constants";
 import { Quest } from "wow/wotlk/std/Quest/Quest";
 import { translate } from "../../../utils/translation";
 import { MATHIAS_BARRELBEARD } from "../../../npc/elwynn/goldshire/mathias-barrelbeard";
-import { AreaIDs } from "../../../utils/AreaIDs";
+import { AreaIDs } from "../../../utils/area-ids";
 import { NOGGENFOGGER_ELIXIR } from "../../../items/misc/noggenfogger";
 
 namespace Translation {

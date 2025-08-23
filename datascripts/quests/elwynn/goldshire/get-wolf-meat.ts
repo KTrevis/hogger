@@ -3,7 +3,7 @@ import { MODULE_NAME } from "../../../utils/constants";
 import { Quest } from "wow/wotlk/std/Quest/Quest";
 import { translate } from "../../../utils/translation";
 import { THORIN_IRONBEARD } from "../../../npc/elwynn/goldshire/thorin-ironbeard";
-import { AreaIDs } from "../../../utils/AreaIDs";
+import { AreaIDs } from "../../../utils/area-ids";
 
 namespace Translation {
   export function english(quest: Quest) {

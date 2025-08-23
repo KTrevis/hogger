@@ -8,6 +8,10 @@ alwaysApply: true
 
 Ce projet est un **mod de World of Warcraft (version 3.3.5)** qui utilise **TSWoW** (TypeScript WoW), un framework permettant de créer des mods WoW en utilisant TypeScript.
 
+### Core serveur utilisé
+
+Le core serveur sous-jacent est **TrinityCore** (3.3.5a). La plupart des concepts de données (DBC/DB2), flags/bitmasks, et comportements réseau viennent de TrinityCore. Pour des détails bas niveau (par ex. flags d'inventaire, familles d'objets, enchants), se référer à la documentation et au code TrinityCore lorsque la doc TSWoW est insuffisante.
+
 ## Structure du Module
 
 Le module hogger contient :
