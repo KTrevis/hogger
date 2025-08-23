@@ -1,8 +1,8 @@
 import { CreatorHelper } from "../../../utils/creator-helper";
 import { ItemTemplate } from "wow/wotlk/std/Item/ItemTemplate";
 import { translate } from "../../../utils/translation";
-import { VICTORY_RUSH_FLAG_TRIGGER_ON_KILL } from "../../../auras/warrior/victory-rush-healing";
 import { MODULE_NAME } from "../../../utils/constants";
+import { VICTORY_RUSH_HEALING } from "../../../auras/warrior/victory-rush-healing";
 
 const VICTORY_RUSH_LEGENDARY = CreatorHelper.createItem(
   "victory-rush-legendary"
@@ -16,7 +16,7 @@ VICTORY_RUSH_LEGENDARY.InventoryType.FINGER.set()
     "inv_jewelry_ring_32"
   )
   .Spells.addGet()
-  .Spell.set(VICTORY_RUSH_FLAG_TRIGGER_ON_KILL.ID)
+  .Spell.set(VICTORY_RUSH_HEALING.ID)
   .Trigger.ON_EQUIP.set();
 
 namespace ItemTranslation {
