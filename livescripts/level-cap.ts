@@ -1,5 +1,5 @@
 export namespace LevelCap {
-  const MAX_LEVEL = 10;
+  const MAX_LEVEL = 80;
   const LEVEL_TO_APPLY_XP_DEBUFF = MAX_LEVEL - 10;
 
   function applyDebuffXP(player: TSPlayer) {

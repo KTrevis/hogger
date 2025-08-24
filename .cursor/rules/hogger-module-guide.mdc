@@ -23,6 +23,8 @@ Le module hogger contient :
 
 **TOUJOURS** consulter le dossier examples pour t'inspirer des bonnes pratiques et des patterns existants avant de répondre aux questions ou de créer du code.
 
+Par ailleurs, pour comprendre le fonctionnement interne de TSWoW, tu peux consulter `tswow-source/`, qui contient le code source de TSWoW (APIs, compileurs, utilitaires, etc.).
+
 ## Gestion des Erreurs de Linter
 
 **RÈGLE CRITIQUE** : Avant de considérer qu'une tâche est terminée, tu **DOIS** :

@@ -20,7 +20,31 @@ INSTANT_LAVABURST.Duration.setSimple(8 * 1000)
       .Operation.CASTING_TIME.set()
       .PercentBase.set(-999)
       .ImplicitTargetA.UNIT_CASTER.set()
-  );
+  )
+  .Effects.addMod((eff) =>
+    eff.Type.APPLY_AURA.set()
+      .ClassMask.B.set(LAVA_BURST.ClassMask.B.get())
+      .Aura.MOD_COOLDOWN.set()
+      .PercentBase.set(-999)
+      .ImplicitTargetA.UNIT_CASTER.set()
+  )
+  .InlineScripts.OnApply((eff) => {
+    const player = ToPlayer(eff.GetCaster());
+    if (!player) {
+      return;
+    }
+    const LAVABURST_IDS = [51505, 60043];
+    for (const id of LAVABURST_IDS) {
+      player.ResetCooldown(id);
+    }
+  })
+  .Proc.mod((proc) =>
+    proc.SpellFamily.set(LAVA_BURST.Family.get())
+      .ClassMask.B.set(LAVA_BURST.ClassMask.B.get())
+      .TriggerMask.DONE_PERIODIC.set(true)
+      .PhaseMask.HIT.set(true)
+  )
+  .InlineScripts.OnProc((application, proc) => application.GetAura().Remove());
 
 namespace Translation {
   export function english(spell: Spell) {
@@ -35,3 +59,5 @@ namespace Translation {
 translate(INSTANT_LAVABURST, {
   enGB: Translation.english,
 });
+
+console.log(std.Spells.load(14185).objectify());

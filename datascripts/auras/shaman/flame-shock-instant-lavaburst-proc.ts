@@ -1,9 +1,8 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
-import { HEALING_20_PCT } from "../../utils/auras/healing-20-percent";
 import { INSTANT_LAVABURST } from "./instant-lavaburst";
 
-const CHANCE_TO_PROC = 50;
+const CHANCE_TO_PROC = 20;
 
 const FLAME_SHOCK = std.Spells.load(8050);
 
@@ -17,6 +16,7 @@ FLAME_SHOCK_INSTANT_LAVABURST_PROC.Family.set(FLAME_SHOCK.Family.get())
     proc.ClassMask.A.set(FLAME_SHOCK.ClassMask.A.get())
       .SpellFamily.set(FLAME_SHOCK.Family.get())
       .TriggerMask.TAKEN_DAMAGE.set(true)
+      .TriggerMask.DONE_PERIODIC.set(true)
       .PhaseMask.HIT.set(true)
       .Chance.set(CHANCE_TO_PROC)
   )
@@ -44,5 +44,3 @@ INSTANT_LAVABURST_RING.InventoryType.FINGER.set()
     ).Trigger.ON_EQUIP.set()
   )
   .Name.enGB.set("Instant Lavaburst Ring");
-
-console.log(std.Spells.load(18094).objectify());
