@@ -1,5 +1,7 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
+import { translate } from "../../utils/translation";
+import { Spell } from "wow/wotlk/std/Spell/Spell";
 
 const FLAME_SHOCK = std.Spells.load(8050);
 const AOE_FLAME_SHOCK = std.Spells.create(MODULE_NAME, "aoe-flame-shock");
@@ -9,7 +11,6 @@ AOE_FLAME_SHOCK.Duration.set(INFINITE_DURATION)
   .Effects.addMod((eff) =>
     eff.Type.APPLY_AURA.set().Aura.DUMMY.set().ImplicitTargetA.UNIT_CASTER.set()
   )
-  .Icon.set(FLAME_SHOCK.Icon.get())
   .Proc.mod((proc) =>
     proc.TriggerMask.DONE_PERIODIC.set(true)
       .SpellFamily.set(FLAME_SHOCK.Family.get())
@@ -31,3 +32,17 @@ AOE_FLAME_SHOCK.Duration.set(INFINITE_DURATION)
       player.AddAura(spellID, unit);
     }
   });
+
+namespace Translation {
+  export function english(spell: Spell) {
+    spell.Name.enGB
+      .set("AOE Flame Shock")
+      .Description.enGB.set(
+        "Your Flame Shock is spread to all enemies in a 10 yard radius."
+      );
+  }
+}
+
+translate(AOE_FLAME_SHOCK, {
+  enGB: Translation.english,
+});

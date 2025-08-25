@@ -24,7 +24,8 @@ INSTANT_LAVABURST.Duration.setSimple(8 * 1000)
   .Effects.addMod((eff) =>
     eff.Type.APPLY_AURA.set()
       .ClassMask.B.set(LAVA_BURST.ClassMask.B.get())
-      .Aura.MOD_COOLDOWN.set()
+      .Aura.ADD_PCT_MODIFIER.set()
+      .Operation.COST.set()
       .PercentBase.set(-999)
       .ImplicitTargetA.UNIT_CASTER.set()
   )
@@ -44,11 +45,11 @@ INSTANT_LAVABURST.Duration.setSimple(8 * 1000)
       .TriggerMask.DONE_PERIODIC.set(true)
       .PhaseMask.HIT.set(true)
   )
-  .InlineScripts.OnProc((application, proc) => application.GetAura().Remove());
+  .InlineScripts.OnProc((application) => application.GetAura().Remove());
 
 namespace Translation {
   export function english(spell: Spell) {
-    const TOOLTIP = "Your Lava Burst is instant.";
+    const TOOLTIP = "Your Lava Burst is instant and costs no mana.";
     spell.AuraDescription.enGB
       .set(TOOLTIP)
       .Description.enGB.set(TOOLTIP)
@@ -59,5 +60,3 @@ namespace Translation {
 translate(INSTANT_LAVABURST, {
   enGB: Translation.english,
 });
-
-console.log(std.Spells.load(14185).objectify());

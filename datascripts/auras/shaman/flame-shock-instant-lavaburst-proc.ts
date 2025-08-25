@@ -1,6 +1,8 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
 import { INSTANT_LAVABURST } from "./instant-lavaburst";
+import { Spell } from "wow/wotlk/std/Spell/Spell";
+import { translate } from "../../utils/translation";
 
 const CHANCE_TO_PROC = 20;
 
@@ -27,20 +29,18 @@ FLAME_SHOCK_INSTANT_LAVABURST_PROC.Family.set(FLAME_SHOCK.Family.get())
       .Aura.PROC_TRIGGER_SPELL.set()
       .TriggeredSpell.set(INSTANT_LAVABURST.ID)
   )
-  .Description.enGB.set(
-    `Your Flame Shock has a ${CHANCE_TO_PROC}% chance to make your Lava Burst instant.`
-  )
   .Attributes.HIDE_FROM_AURA_BAR.set(true);
 
-const INSTANT_LAVABURST_RING = std.Items.create(
-  MODULE_NAME,
-  "instant-lavaburst-ring"
-);
+namespace Translation {
+  export function english(spell: Spell) {
+    spell.Description.enGB
+      .set(
+        `Your Flame Shock has a ${CHANCE_TO_PROC}% chance to make your Lava Burst instant.`
+      )
+      .Name.enGB.set("Flame Shock Instant Lava Burst Proc");
+  }
+}
 
-INSTANT_LAVABURST_RING.InventoryType.FINGER.set()
-  .Spells.addMod((spell) =>
-    spell.Spell.set(
-      FLAME_SHOCK_INSTANT_LAVABURST_PROC.ID
-    ).Trigger.ON_EQUIP.set()
-  )
-  .Name.enGB.set("Instant Lavaburst Ring");
+translate(FLAME_SHOCK_INSTANT_LAVABURST_PROC, {
+  enGB: Translation.english,
+});
