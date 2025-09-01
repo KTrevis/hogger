@@ -1,0 +1,32 @@
+{
+    "ObjectPalettes": [
+        {
+            "Filepaths": [
+                "world/wmo/azeroth/buildings/redridge_townhall_nowall/redridge_townhall_nowall.wmo",
+                "world/azeroth/redridge/passivedoodads/trees/redridgefallentree02.m2",
+                "world/azeroth/redridge/passivedoodads/stumps/redridgestump02.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgefallentree01.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgefallentree03.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgefallentree01moss.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetree02.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgefallentree02moss.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetree01.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreecanopy01.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreecanopy02.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreecanopy03.m2",
+                "world/wmo/azeroth/buildings/prison_camp/prisonhq_redridge.wmo",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreecanopy04.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreemid01.m2",
+                "world/azeroth/redridge/passivedoodads/trees/redridgetreestump01.m2",
+                "world/wmo/azeroth/buildings/redridge_human_farm/redridge_human_farm.wmo",
+                "world/wmo/azeroth/buildings/redridge_humantwostory/redridge_humantwostory.wmo",
+                "world/wmo/azeroth/buildings/redridge_blacksmith/redridge_blacksmith.wmo",
+                "world/wmo/azeroth/buildings/prison_camp/prisonlonghouse_redridge.wmo",
+                "world/wmo/azeroth/buildings/chapel/redridgechapel.wmo"
+            ],
+            "MapId": 0
+        }
+    ],
+    "TexturePalettes": [
+    ]
+}

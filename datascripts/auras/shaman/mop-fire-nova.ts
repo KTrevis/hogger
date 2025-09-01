@@ -80,7 +80,7 @@ namespace Translation {
     spell.Name.enGB
       .set("Searing Spread")
       .Description.enGB.set(
-        "If your target has a Flame Shock, it will be spread to all enemies in a 10 yard radius."
+        "If your target has an active Flame Shock, it will be spread to all enemies in a 10 yard radius."
       );
   }
 }

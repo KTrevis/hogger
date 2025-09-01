@@ -1,6 +1,6 @@
 export namespace LevelCap {
   const MAX_LEVEL = 80;
-  const LEVEL_TO_APPLY_XP_DEBUFF = MAX_LEVEL - 10;
+  const LEVEL_TO_APPLY_XP_DEBUFF = MAX_LEVEL - 20;
 
   function applyDebuffXP(player: TSPlayer) {
     const DEBUFF_ID = UTAG("hogger", "xp-debuff");
