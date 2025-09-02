@@ -1,6 +1,7 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "./constants";
 
+// TODO: delete this shit
 export class CreatorHelper {
   static createSpell(name: string, id?: number) {
     return std.Spells.create(MODULE_NAME, name, id);

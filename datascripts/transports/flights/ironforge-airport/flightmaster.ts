@@ -1,6 +1,6 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../utils/constants";
-import { FlightNodeIds } from "../../../utils/flight-node-ids";
+import { FlightNodeIds } from "../../../utils/enums/flight-node-ids";
 
 const FLIGHT_MASTER_SPAWN = {
   map: 0,

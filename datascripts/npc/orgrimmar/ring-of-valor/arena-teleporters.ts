@@ -1,9 +1,9 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../utils/constants";
-import { GameObjectDisplayId } from "../../../utils/gameobject-display-id";
+import { GameObjectDisplayId } from "../../../utils/enums/gameobject-display-id";
 import { GameObjectGoober } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 import { translate } from "../../../utils/translation";
-import { AreaIDs } from "../../../utils/area-ids";
+import { AreaIDs } from "../../../utils/enums/area-ids";
 
 namespace Translation {
   export function english(go: GameObjectGoober) {
