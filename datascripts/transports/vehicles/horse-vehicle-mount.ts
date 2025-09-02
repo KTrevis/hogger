@@ -2,19 +2,19 @@ import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../utils/constants";
 import { VEHICLE_INSTANT_DESPAWN_FLAG } from "../../utils/spells/vehicle-despawn";
 
-const HORSE_40_VEHICLE = std.Vehicles.create(62);
+export const HORSE_VEHICULE = std.Vehicles.create(62);
 
-HORSE_40_VEHICLE.Seats.modRef(0, (seat) => {
+HORSE_VEHICULE.Seats.modRef(0, (seat) => {
   seat.HasUISkin.set(0).Attachment.set(21, 0, 0, 0);
 });
 
-const HORSE_40_NPC = std.CreatureTemplates.create(
+export const HORSE_VEHICLE_MOUNT_NPC = std.CreatureTemplates.create(
   "hogger",
   "horse-40-mount",
   5403
 )
   .Tags.addUnique(MODULE_NAME, "horse-40-mount-npc")
-  .Vehicle.set(HORSE_40_VEHICLE.ID)
+  .Vehicle.set(HORSE_VEHICULE.ID)
   .NPCFlags.GOSSIP.set(true)
   .Spawns.add(MODULE_NAME, "horse-40-mount-spawn", [
     { map: 0, x: -9441.90332, y: 81.925133, z: 57.308872, o: 5.190265 },
