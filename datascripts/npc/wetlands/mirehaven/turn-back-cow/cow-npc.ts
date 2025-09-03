@@ -1,4 +1,11 @@
-export const COW_SPAWNS = [
+import { std } from "wow/wotlk";
+import { MODULE_NAME } from "../../../../utils/constants";
+import { HORSE_VEHICLE_MOUNT_NPC } from "../../../../transports/vehicles/horse-vehicle-mount";
+import { addCreatureSpells } from "../../../../utils/creature-spells";
+import { TURN_BACK_COW_SPELL } from "./spell";
+import { COW_VEHICULE } from "./vehicle";
+
+const COW_SPAWNS = [
   { map: 0, x: -3803.357422, y: -2096.482666, z: 165.432861, o: 3.780908 },
   { map: 0, x: -3818.287109, y: -2105.612793, z: 166.168488, o: 3.68666 },
   { map: 0, x: -3861.340088, y: -2128.564697, z: 166.40834, o: 3.325377 },
@@ -28,3 +35,35 @@ export const COW_SPAWNS = [
   { map: 0, x: -3840.408936, y: -2114.475342, z: 165.822372, o: 0.819948 },
   { map: 0, x: -3886.504639, y: -2040.127563, z: 153.514786, o: 1.083057 },
 ];
+
+export const COW_QUEST_OBJECTIVE = std.CreatureTemplates.create(
+  MODULE_NAME,
+  "mirehaven-horse-quest-objective",
+  HORSE_VEHICLE_MOUNT_NPC.ID
+)
+  .Vehicle.set(COW_VEHICULE.ID)
+  .Spawns.add(
+    MODULE_NAME,
+    "mirehaven-horse-quest-objective-spawn",
+    COW_SPAWNS,
+    (spawn) => spawn.MovementType.RANDOM_MOVEMENT.set().WanderDistance.set(10)
+  )
+  .Models.clearAll()
+  .Models.addMod((model) => model.set(1060))
+  .InlineScripts.OnGossipHello((creature, player, cancel) => {
+    cancel.set(true);
+    const QUEST_ID = UTAG("hogger", "mirehaven-turn-back-cow-quest");
+    const CONTROL_VEHICLE = UTAG("hogger", "control-vehicle");
+    if (player.HasQuest(QUEST_ID)) {
+      player.CastSpell(creature, CONTROL_VEHICLE, true);
+    } else {
+      player.SendAreaTriggerMessage(
+        `You cannot ride this cow without the quest "Turn Back Cow".`
+      );
+    }
+  });
+
+addCreatureSpells(COW_QUEST_OBJECTIVE.ID, [
+  { spell: 48594, index: 0 },
+  { spell: TURN_BACK_COW_SPELL.ID, index: 1 },
+]);

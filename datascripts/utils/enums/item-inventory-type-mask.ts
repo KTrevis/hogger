@@ -1,5 +1,5 @@
 import { ItemInventoryType } from "wow/wotlk/std/Item/ItemInventoryType";
-import { getEnumKeysAndValues } from "./enums/enums";
+import { getEnumKeysAndValues } from "./enums";
 
 function generateEnum() {
   const { keys, values } = getEnumKeysAndValues(ItemInventoryType);
