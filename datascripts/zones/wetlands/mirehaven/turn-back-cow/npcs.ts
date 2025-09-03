@@ -4,6 +4,8 @@ import { HORSE_VEHICLE_MOUNT_NPC } from "../../../../transports/vehicles/horse-v
 import { addCreatureSpells } from "../../../../utils/creature-spells";
 import { TURN_BACK_COW_SPELL } from "./spell";
 import { COW_VEHICULE } from "./vehicle";
+import { CreatureTemplate } from "wow/wotlk/std/Creature/CreatureTemplate";
+import { translate } from "../../../../utils/translation";
 
 const COW_SPAWNS = [
   { map: 0, x: -3803.357422, y: -2096.482666, z: 165.432861, o: 3.780908 },
@@ -67,3 +69,13 @@ addCreatureSpells(COW_QUEST_OBJECTIVE.ID, [
   { spell: 48594, index: 0 },
   { spell: TURN_BACK_COW_SPELL.ID, index: 1 },
 ]);
+
+namespace Translation {
+  export function english(creature: CreatureTemplate) {
+    creature.Name.enGB.set("Mirehaven Cow");
+  }
+}
+
+translate(COW_QUEST_OBJECTIVE, {
+  enGB: Translation.english,
+});

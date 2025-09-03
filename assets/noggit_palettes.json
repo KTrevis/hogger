@@ -2,7 +2,21 @@
     "ObjectPalettes": [
         {
             "Filepaths": [
-                "world/wmo/azeroth/collidable doodads/westfall/humanboathouse/humanboathouse.wmo"
+                "world/wmo/northrend/buildings/winterorc/nd_winterorc_barracks/nd_winterorc_barracks.wmo",
+                "world/wmo/outland/orcbuildings/outlandorcbarracks01.wmo",
+                "world/azeroth/burningsteppes/passivedoodads/orctoolrackburningsteppes/orctoolrackburningsteppes.m2",
+                "world/wmo/pvp/buildings/orcbarrackspvp/alteracgeneralorcfortress.wmo",
+                "world/wmo/pvp/buildings/orcbarrackspvp/orcbarrackspvp.wmo",
+                "world/azeroth/burningsteppes/passivedoodads/bonfire/orcbonfire.m2",
+                "world/azeroth/burningsteppes/passivedoodads/orcanvilstoneburningsteppes/orcanvilstoneburningsteppes.m2",
+                "world/expansion01/doodads/bladesedge/dragon/bem_dragon_05.m2",
+                "world/azeroth/burningsteppes/passivedoodads/orcburialpyres/orcstoneburialpyrebody.m2",
+                "world/azeroth/burningsteppes/passivedoodads/orctents/orctent.m2",
+                "world/expansion01/doodads/bladesedge/dragon/bem_dragon_01.m2",
+                "world/expansion01/doodads/bladesedge/dragon/bem_dragon_02.m2",
+                "world/expansion01/doodads/bladesedge/dragon/bem_dragon_03.m2",
+                "world/expansion01/doodads/bladesedge/dragon/bem_dragon_04.m2",
+                "world/outland/passivedoodads/bladethrower/bladethrowerruined01.m2"
             ],
             "MapId": 0
         }

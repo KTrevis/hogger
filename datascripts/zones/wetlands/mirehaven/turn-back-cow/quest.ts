@@ -1,18 +1,17 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
-import { QUESTGIVER } from "./questgiver";
 import { AreaIDs } from "../../../../utils/enums/area-ids";
 import { WorldMapAreaIDs } from "../../../../utils/enums/world-map-area";
-import { TURN_BACK_COW_CREDIT } from "./spell";
+import { TURN_BACK_COW_QUESTGIVER } from "./questgiver";
 
 export const TURN_BACK_COW_QUEST = std.Quests.create(
   MODULE_NAME,
   "mirehaven-turn-back-cow-quest"
 )
-  .Objectives.Entity.add(TURN_BACK_COW_CREDIT.ID, 6)
+  .Objectives.Entity.add(TURN_BACK_COW_QUESTGIVER.ID, 6)
   .Name.enGB.set("Turn Back Cow")
   .Tags.addUnique(MODULE_NAME, "mirehaven-turn-back-cow-quest")
-  .Questgiver.addCreatureBoth(QUESTGIVER.ID, true)
+  .Questgiver.addCreatureBoth(TURN_BACK_COW_QUESTGIVER.ID, true)
   .POIs.add(
     0,
     [
