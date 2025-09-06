@@ -48,15 +48,15 @@ INSTANT_LAVABURST.Duration.setSimple(8 * 1000)
   .InlineScripts.OnProc((application) => application.GetAura().Remove());
 
 namespace Translation {
-  export function english(spell: Spell) {
+  export function english() {
     const TOOLTIP = "Your Lava Burst is instant and costs no mana.";
-    spell.AuraDescription.enGB
+    INSTANT_LAVABURST.AuraDescription.enGB
       .set(TOOLTIP)
       .Description.enGB.set(TOOLTIP)
       .Name.enGB.set("Instant Lava Burst");
   }
 }
 
-translate(INSTANT_LAVABURST, {
+translate({
   enGB: Translation.english,
 });

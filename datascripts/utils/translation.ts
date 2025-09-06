@@ -1,9 +1,13 @@
 import { Language, Languages } from "wow/data/dbc/Localization";
 
-type TranslationMap<T> = Partial<Record<Language, (item: T) => void>>;
+type TranslationMap<T> = Partial<Record<Language, () => void>>;
 
-export function translate<T>(item: T, fn: TranslationMap<T>) {
+export function translate<T>(fn: TranslationMap<T>) {
   for (const lang of Languages) {
-    fn[lang]?.(item);
+    const handler = fn[lang];
+    if (!handler) {
+      continue;
+    }
+    handler();
   }
 }

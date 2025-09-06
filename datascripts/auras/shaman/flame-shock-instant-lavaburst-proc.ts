@@ -32,8 +32,8 @@ FLAME_SHOCK_INSTANT_LAVABURST_PROC.Family.set(FLAME_SHOCK.Family.get())
   .Attributes.HIDE_FROM_AURA_BAR.set(true);
 
 namespace Translation {
-  export function english(spell: Spell) {
-    spell.Description.enGB
+  export function english() {
+    FLAME_SHOCK_INSTANT_LAVABURST_PROC.Description.enGB
       .set(
         `Your Flame Shock has a ${CHANCE_TO_PROC}% chance to make your Lava Burst instant.`
       )
@@ -41,6 +41,6 @@ namespace Translation {
   }
 }
 
-translate(FLAME_SHOCK_INSTANT_LAVABURST_PROC, {
+translate({
   enGB: Translation.english,
 });

@@ -4,9 +4,9 @@ import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
 import { translate } from "../../utils/translation";
 
-const XP_BUFF = std.Spells.create(MODULE_NAME, "50-percent-reduced-xp-buff");
+const XP_DEBUFF = std.Spells.create(MODULE_NAME, "50-percent-reduced-xp-buff");
 
-XP_BUFF.Tags.addUnique(MODULE_NAME, "xp-debuff")
+XP_DEBUFF.Tags.addUnique(MODULE_NAME, "xp-debuff")
   .Effects.addMod((eff) =>
     eff.Type.APPLY_AURA.set()
       .Aura.MOD_XP_PCT.set()
@@ -24,24 +24,15 @@ XP_BUFF.Tags.addUnique(MODULE_NAME, "xp-debuff")
   .Attributes.IS_NEGATIVE.set(true);
 
 namespace Translation {
-  export function english(spell: Spell) {
+  export function english() {
     const TOOLTIP = "Reduces XP gained by 50%.";
-    spell.Description.enGB
+    XP_DEBUFF.Description.enGB
       .set(TOOLTIP)
       .Name.enGB.set("Slow and Steady...")
       .AuraDescription.enGB.set(TOOLTIP);
   }
 }
 
-translate(XP_BUFF, {
+translate({
   enGB: Translation.english,
 });
-
-const XP_RING = CreatorHelper.createItem("xp-ring");
-
-XP_RING.InventoryType.FINGER.set()
-  .Quality.ORANGE.set()
-  .DisplayInfo.setSimpleIcon(MODULE_NAME, "xp-ring-icon", "inv_jewelry_ring_32")
-  .Spells.addGet()
-  .Spell.set(XP_BUFF.ID)
-  .Trigger.ON_EQUIP.set();

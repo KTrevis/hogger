@@ -8,9 +8,11 @@ const BATTLE_SHOUT_IDS = [
 
 const RAGE_GIVEN = 20;
 
-function english(spell: Spell) {
-  const tooltip = `${spell.Description.enGB.get()} Also grants ${RAGE_GIVEN} rage.`;
-  spell.Description.enGB.set(tooltip);
+namespace Translation {
+  export function english(spell: Spell) {
+    const tooltip = `${spell.Description.enGB.get()} Also grants ${RAGE_GIVEN} rage.`;
+    spell.Description.enGB.set(tooltip);
+  }
 }
 
 function modBattleShout(spell: Spell) {
@@ -22,8 +24,8 @@ function modBattleShout(spell: Spell) {
     .PowerBase.set(RAGE_GIVEN * 10)
     .ImplicitTargetA.UNIT_CASTER.set();
 
-  translate(spell, {
-    enGB: english,
+  translate({
+    enGB: () => Translation.english(spell),
   });
 }
 

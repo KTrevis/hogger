@@ -34,8 +34,8 @@ AOE_FLAME_SHOCK.Duration.set(INFINITE_DURATION)
   });
 
 namespace Translation {
-  export function english(spell: Spell) {
-    spell.Name.enGB
+  export function english() {
+    AOE_FLAME_SHOCK.Name.enGB
       .set("AOE Flame Shock")
       .Description.enGB.set(
         "Your Flame Shock is spread to all enemies in a 10 yard radius."
@@ -43,6 +43,6 @@ namespace Translation {
   }
 }
 
-translate(AOE_FLAME_SHOCK, {
+translate({
   enGB: Translation.english,
 });

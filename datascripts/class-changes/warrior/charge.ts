@@ -5,11 +5,13 @@ import { translate } from "../../utils/translation";
 
 const CHARGE_IDS = [100, 6178, 11578];
 
-function english(spell: Spell) {
-  const tooltip = spell.Description.enGB
-    .get()
-    .replace("Cannot be used in combat.", "");
-  spell.Description.enGB.set(tooltip);
+namespace Translation {
+  export function english(spell: Spell) {
+    const tooltip = spell.Description.enGB
+      .get()
+      .replace("Cannot be used in combat.", "");
+    spell.Description.enGB.set(tooltip);
+  }
 }
 
 function modCharge(spell: Spell) {
@@ -17,8 +19,8 @@ function modCharge(spell: Spell) {
     .ShapeshiftMask.Exclude.set(BigInt(0))
     .ShapeshiftMask.Include.set(BigInt(0));
 
-  translate(spell, {
-    enGB: english,
+  translate({
+    enGB: () => Translation.english(spell),
   });
 }
 

@@ -76,8 +76,8 @@ const MOP_FIRE_NOVA = std.Spells.create(MODULE_NAME, "mop-fire-nova")
   });
 
 namespace Translation {
-  export function english(spell: Spell) {
-    spell.Name.enGB
+  export function english() {
+    MOP_FIRE_NOVA.Name.enGB
       .set("Searing Spread")
       .Description.enGB.set(
         "If your target has an active Flame Shock, it will be spread to all enemies in a 10 yard radius."
@@ -85,6 +85,6 @@ namespace Translation {
   }
 }
 
-translate(MOP_FIRE_NOVA, {
+translate({
   enGB: Translation.english,
 });

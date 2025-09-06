@@ -28,14 +28,15 @@ VICTORY_RUSH_HEALING.Proc.mod((x) =>
   );
 
 namespace Translation {
-  export function english(spell: Spell) {
-    spell.Name.enGB.set("Victory Rush Healing");
-    spell.Description.enGB.set(
-      "Using Victory Rush heals you for 20% of your max health."
-    );
+  export function english() {
+    VICTORY_RUSH_HEALING.Name.enGB
+      .set("Victory Rush Healing")
+      .Description.enGB.set(
+        "Using Victory Rush heals you for 20% of your max health."
+      );
   }
 }
 
-translate(VICTORY_RUSH_HEALING, {
+translate({
   enGB: Translation.english,
 });

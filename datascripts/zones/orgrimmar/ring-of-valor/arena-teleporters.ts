@@ -5,12 +5,6 @@ import { GameObjectGoober } from "wow/wotlk/std/GameObject/GameObjectTemplate";
 import { translate } from "../../../utils/translation";
 import { AreaIDs } from "../../../utils/enums/area-ids";
 
-namespace Translation {
-  export function english(go: GameObjectGoober) {
-    go.Name.enGB.set("Goblin Teleporter");
-  }
-}
-
 const TP_IN = std.GameObjectTemplates.Goobers.create(
   MODULE_NAME,
   "ring-of-valor-tp-in-go",
@@ -29,10 +23,6 @@ const TP_IN = std.GameObjectTemplates.Goobers.create(
 TP_IN.InlineScripts.OnGossipHello((_, player) =>
   player.Teleport(1, 2169.14624, -4801.341797, 55.138973, 1.264487)
 );
-
-translate(TP_IN, {
-  enGB: Translation.english,
-});
 
 const TP_OUT = std.GameObjectTemplates.Goobers.create(
   MODULE_NAME,
@@ -54,3 +44,13 @@ const TP_OUT = std.GameObjectTemplates.Goobers.create(
     }
     player.Teleport(1, 2142.951904, -4742.124512, 73.5, 5.573409);
   });
+
+namespace Translation {
+  export function english() {
+    TP_IN.Name.enGB.set("Goblin Teleporter");
+  }
+}
+
+translate({
+  enGB: Translation.english,
+});

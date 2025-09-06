@@ -7,9 +7,8 @@ import { std } from "wow/wotlk";
 const VICTORY_RUSH_LEGENDARY = std.Items.create(
   MODULE_NAME,
   "victory-rush-legendary"
-);
-
-VICTORY_RUSH_LEGENDARY.InventoryType.FINGER.set()
+)
+  .InventoryType.FINGER.set()
   .Quality.ORANGE.set()
   .DisplayInfo.setSimpleIcon(
     MODULE_NAME,
@@ -21,11 +20,11 @@ VICTORY_RUSH_LEGENDARY.InventoryType.FINGER.set()
   );
 
 namespace ItemTranslation {
-  export function english(item: ItemTemplate) {
-    item.Name.enGB.set("Ixion's Touchring");
+  export function english() {
+    VICTORY_RUSH_LEGENDARY.Name.enGB.set("Ixion's Touchring");
   }
 }
 
-translate(VICTORY_RUSH_LEGENDARY, {
+translate({
   enGB: ItemTranslation.english,
 });

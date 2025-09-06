@@ -10,6 +10,7 @@ enum STATS {
 }
 
 const LIGHT_ARMOR_KIT_ENCHANT = std.Enchantments.load(15);
+const LIGHT_ARMOR_KIT_SPELL = std.Spells.load(2831);
 
 LIGHT_ARMOR_KIT_ENCHANT.Effects.clearAll()
   .Effects.addMod((eff) => eff.Type.ADD_ARMOR.set().MinArmor.set(STATS.ARMOR))
@@ -17,29 +18,19 @@ LIGHT_ARMOR_KIT_ENCHANT.Effects.clearAll()
     eff.Type.STAT.set().Stat.set("STAMINA").MinStat.set(STATS.STAMINA)
   );
 
-namespace EnchantTranslation {
-  export function english(enchant: Enchantment) {
-    enchant.Name.enGB.set(
+namespace Translation {
+  export function english() {
+    const TOOLTIP = LIGHT_ARMOR_KIT_SPELL.Description.enGB.get();
+
+    LIGHT_ARMOR_KIT_SPELL.Description.enGB.set(
+      `${TOOLTIP} Also increases stamina by ${STATS.STAMINA}.`
+    );
+    LIGHT_ARMOR_KIT_ENCHANT.Name.enGB.set(
       `Reinforced (+${STATS.ARMOR} Armor, +${STATS.STAMINA} Stamina)`
     );
   }
 }
 
-translate(LIGHT_ARMOR_KIT_ENCHANT, {
-  enGB: EnchantTranslation.english,
-});
-
-const LIGHT_ARMOR_KIT_SPELL = std.Spells.load(2831);
-
-namespace SpellTranslation {
-  export function english(spell: Spell) {
-    const TOOLTIP = spell.Description.enGB.get();
-    spell.Description.enGB.set(
-      `${TOOLTIP} Also increases stamina by ${STATS.STAMINA}.`
-    );
-  }
-}
-
-translate(LIGHT_ARMOR_KIT_SPELL, {
-  enGB: SpellTranslation.english,
+translate({
+  enGB: Translation.english,
 });
