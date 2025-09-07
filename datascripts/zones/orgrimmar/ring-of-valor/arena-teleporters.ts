@@ -1,9 +1,6 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../utils/constants";
-import { GameObjectDisplayId } from "../../../utils/enums/gameobject-display-id";
-import { GameObjectGoober } from "wow/wotlk/std/GameObject/GameObjectTemplate";
-import { translate } from "../../../utils/translation";
-import { AreaIDs } from "../../../utils/enums/area-ids";
+import { GameObjectDisplayIDs } from "../../../utils/enums/gameobject-display-id";
 
 const TP_IN = std.GameObjectTemplates.Goobers.create(
   MODULE_NAME,
@@ -18,7 +15,7 @@ const TP_IN = std.GameObjectTemplates.Goobers.create(
     o: 0.935632,
   })
   .Spell.set(0)
-  .Display.set(GameObjectDisplayId.GOBLIN_TELEPORTER);
+  .Display.set(GameObjectDisplayIDs.GOBLIN_TELEPORTER);
 
 TP_IN.InlineScripts.OnGossipHello((_, player) =>
   player.Teleport(1, 2169.14624, -4801.341797, 55.138973, 1.264487)
@@ -51,6 +48,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

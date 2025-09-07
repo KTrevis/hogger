@@ -1,7 +1,7 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
 
-export const TURN_BACK_COW_QUESTGIVER = std.CreatureTemplates.create(
+export const MIREHAVEN_TURN_BACK_COW_QUESTGIVER = std.CreatureTemplates.create(
   MODULE_NAME,
   "mirehaven-cow-questgiver",
   1252

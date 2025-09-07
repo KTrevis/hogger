@@ -1,7 +1,6 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../utils/constants";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const LIGHTNING_SHIELD = std.Spells.load(324);
 
@@ -85,6 +84,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

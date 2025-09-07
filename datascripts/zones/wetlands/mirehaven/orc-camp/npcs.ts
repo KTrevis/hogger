@@ -1,6 +1,6 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
-import { MIREHAVEN_BLACKSMITH_QUEST_ITEM } from "../blacksmith/quest";
+import { MIREHAVEN_BLACKSMITH_QUEST_ITEM } from "../blacksmith/damaged-weapon.quest";
 import { addQuestItemToCreatureTooltip } from "../../../../utils/quest-tooltip";
 
 const MIREHAVEN_DRAGON_MAW_RAIDER = std.CreatureTemplates.create(
@@ -26,7 +26,8 @@ const MIREHAVEN_DRAGON_MAW_RAIDER = std.CreatureTemplates.create(
       { map: 0, x: -3708.79834, y: -1661.372681, z: 154.009384, o: 2.888625 },
     ],
     (spawn) => spawn.MovementType.RANDOM_MOVEMENT.set().WanderDistance.set(10)
-  );
+  )
+  .Level.set(25, 25);
 
 addQuestItemToCreatureTooltip(
   MIREHAVEN_DRAGON_MAW_RAIDER.ID,

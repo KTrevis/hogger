@@ -9,7 +9,6 @@ export const MIREHAVEN_WOOD_BUNDLE = std.Items.create(
   MODULE_NAME,
   "mirehaven-wood-bundle-item"
 )
-  .Name.enGB.set("Mirehaven Wood Bundle")
   .DisplayInfo.setSimpleIcon(
     MODULE_NAME,
     "mirehaven-wood-bundle-icon",
@@ -38,3 +37,23 @@ export const MIREHAVEN_COLLECT_WOOD_QUEST = std.Quests.create(
   .QuestLevel.set(25)
   .Rewards.Difficulty.DIFFICULTY_5.set()
   .Questgiver.addCreatureBoth(MIREHAVEN_LOOT_WOOD_QUESTGIVER.ID);
+
+namespace Translation {
+  export function english() {
+    MIREHAVEN_COLLECT_WOOD_QUEST.Name.enGB
+      .set("Collect Wood")
+      .PickupText.enGB.set(
+        `Mirehaven's fires are dwindling and the night grows cold.
+We need fresh wood to keep the hearths lit and the workers safe.
+Head into the mire and gather sturdy bundles wherever you can find them.`
+      )
+      .CompleteLogText.enGB.set("Return to Mirehaven.")
+      .ObjectiveText.enGB.set("Collect bundle of wood.")
+      .CompleteText.enGB.set("")
+      .IncompleteText.enGB.set("");
+
+    MIREHAVEN_WOOD_BUNDLE.Name.enGB.set("Mirehaven Wood Bundle");
+  }
+}
+
+Translation.english();

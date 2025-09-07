@@ -2,15 +2,10 @@
     "ObjectPalettes": [
         {
             "Filepaths": [
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall01.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall02.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall03.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall04.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall05.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall06.m2",
-                "world/expansion01/doodads/generic/ancientorc/outpostwalls/ao_outpostwall07.m2",
-                "world/wmo/northrend/buildings/human/db_barracks.wmo",
-                "world/wmo/pvp/buildings/orcbarrackspvp/alteracgeneralorcfortress.wmo"
+                "world/wmo/dungeon/md_cavetunnels/bladesedgeogretunnel.wmo",
+                "world/wmo/dungeon/md_cavetunnels/bladesedgeogretunnel2.wmo",
+                "world/wmo/dungeon/md_cavetunnels/md_cavetunnel01.wmo",
+                "world/wmo/dungeon/md_mountaincave/md_mountaincave_medium.wmo"
             ],
             "MapId": 0
         }

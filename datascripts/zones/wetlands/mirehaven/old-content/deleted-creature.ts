@@ -1,6 +1,8 @@
 import { std } from "wow/wotlk";
 
-const CREATURE_TO_DELETE = [60898, 61693, 60899, 60900, 60895, 60894];
+const CREATURE_TO_DELETE = [
+  60898, 61693, 60899, 60900, 60895, 60894, 60918, 60917,
+];
 
 CREATURE_TO_DELETE.forEach((id) => {
   const instance = std.CreatureInstances.load(id);

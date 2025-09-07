@@ -1,6 +1,5 @@
 import { std } from "wow/wotlk";
 import { Enchantment } from "wow/wotlk/std/Enchant/Enchantment";
-import { translate } from "../../../utils/translation";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
 import { ItemInventoryType } from "wow/wotlk/std/Item/ItemInventoryType";
 
@@ -31,6 +30,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

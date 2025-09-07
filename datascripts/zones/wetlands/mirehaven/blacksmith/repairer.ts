@@ -23,4 +23,5 @@ export const MIREHAVEN_REPAIRER = std.CreatureTemplates.create(
         .EquipmentID.set(1)
   )
   .NPCFlags.QUEST_GIVER.set(true)
+  .NPCFlags.GOSSIP.set(true)
   .Weapons.add(5956);

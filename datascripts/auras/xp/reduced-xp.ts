@@ -1,8 +1,5 @@
 import { std } from "wow/wotlk";
-import { CreatorHelper } from "../../utils/creator-helper";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
-import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const XP_DEBUFF = std.Spells.create(MODULE_NAME, "50-percent-reduced-xp-buff");
 
@@ -33,6 +30,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

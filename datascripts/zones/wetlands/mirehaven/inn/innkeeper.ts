@@ -1,7 +1,6 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
 import { CreatureTemplate } from "wow/wotlk/std/Creature/CreatureTemplate";
-import { translate } from "../../../../utils/translation";
 
 const MIREHAVEN_INN_KEEPER = std.CreatureTemplates.create(
   MODULE_NAME,
@@ -23,6 +22,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

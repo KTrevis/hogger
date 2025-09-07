@@ -1,8 +1,6 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
 import { INSTANT_LAVABURST } from "./instant-lavaburst";
-import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const CHANCE_TO_PROC = 20;
 
@@ -41,6 +39,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

@@ -1,7 +1,5 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
-import { translate } from "../../utils/translation";
-import { Spell } from "wow/wotlk/std/Spell/Spell";
 
 const FLAME_SHOCK = std.Spells.load(8050);
 const AOE_FLAME_SHOCK = std.Spells.create(MODULE_NAME, "aoe-flame-shock");
@@ -43,6 +41,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

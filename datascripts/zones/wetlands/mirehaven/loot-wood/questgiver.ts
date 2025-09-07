@@ -13,4 +13,5 @@ export const MIREHAVEN_LOOT_WOOD_QUESTGIVER = std.CreatureTemplates.create(
     z: 166.840714,
     o: 2.404961,
   })
-  .NPCFlags.QUEST_GIVER.set(true);
+  .NPCFlags.QUEST_GIVER.set(true)
+  .NPCFlags.GOSSIP.set(true);

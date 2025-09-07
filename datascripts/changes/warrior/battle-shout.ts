@@ -1,6 +1,5 @@
 import { std } from "wow/wotlk";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const BATTLE_SHOUT_IDS = [
   6673, 5242, 6192, 11549, 11550, 11551, 25289, 2048, 47436,
@@ -24,9 +23,7 @@ function modBattleShout(spell: Spell) {
     .PowerBase.set(RAGE_GIVEN * 10)
     .ImplicitTargetA.UNIT_CASTER.set();
 
-  translate({
-    enGB: () => Translation.english(spell),
-  });
+  Translation.english(spell);
 }
 
 for (const id of BATTLE_SHOUT_IDS) {

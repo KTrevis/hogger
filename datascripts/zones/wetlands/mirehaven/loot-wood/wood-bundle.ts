@@ -33,7 +33,7 @@ const SPAWNS = [
   { map: 0, x: -3579.402832, y: -2055.852783, z: 166.749084, o: 0.971616 },
 ];
 
-std.GameObjectTemplates.Chests.create(
+export const WOOD_BUNDLE_CHEST = std.GameObjectTemplates.Chests.create(
   MODULE_NAME,
   "mirehaven-wood-bundle-chest",
   176793

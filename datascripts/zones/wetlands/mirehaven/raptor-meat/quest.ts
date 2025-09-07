@@ -1,12 +1,11 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
 import { MIREHAVEN_WOOD_BUNDLE } from "../loot-wood/quest";
-import { QuestObjective } from "wow/wotlk/std/Quest/QuestObjective";
 import { QuestObjectiveTypes } from "../../../../utils/enums/quest-objective-types";
-import { translate } from "../../../../utils/translation";
 import { addQuestItemToCreatureTooltip } from "../../../../utils/quest-tooltip";
 import { AreaIDs } from "../../../../utils/enums/area-ids";
 import { WorldMapAreaIDs } from "../../../../utils/enums/world-map-area";
+import { setQuestText } from "../../../../utils/quest-text";
 
 const QUESTGIVER = std.CreatureTemplates.create(
   MODULE_NAME,
@@ -38,28 +37,36 @@ const MIREHAVEN_RAPTOR = std.CreatureTemplates.create(
   1015
 )
   .Level.set(25, 25)
-  .Spawns.add(MODULE_NAME, "mirehaven-raptor-npc", [
-    { map: 0, x: -3713.015137, y: -1955.034424, z: 167.822647, o: 0.065121 },
-    { map: 0, x: -3659.11377, y: -1965.101074, z: 166.424561, o: 6.089128 },
-    { map: 0, x: -3649.845459, y: -1915.345093, z: 165.50708, o: 1.651628 },
-    { map: 0, x: -3673.599365, y: -1896.574463, z: 166.443588, o: 2.904339 },
-    { map: 0, x: -3725.073486, y: -1894.348145, z: 168.609924, o: 3.171374 },
-    { map: 0, x: -3747.666016, y: -1854.922852, z: 169.171997, o: 1.317834 },
-    { map: 0, x: -3697.198486, y: -1834.044556, z: 167.680786, o: 0.976186 },
-    { map: 0, x: -3701.130371, y: -1799.903564, z: 168.203461, o: 1.655555 },
-    { map: 0, x: -3741.266113, y: -1796.427856, z: 168.692551, o: 2.794383 },
-    { map: 0, x: -3759.275635, y: -1767.776611, z: 168.694504, o: 0.964405 },
-    { map: 0, x: -3757.276855, y: -1916.622437, z: 169.881744, o: 2.452732 },
-    { map: 0, x: -3685.700684, y: -1860.906006, z: 166.418106, o: 1.67126 },
-    { map: 0, x: -3733.943115, y: -1828.661621, z: 168.684647, o: 2.688351 },
-    { map: 0, x: -3726.944336, y: -1988.485474, z: 165.106125, o: 3.505144 },
-    { map: 0, x: -3761.722412, y: -1992.372681, z: 156.641418, o: 3.245962 },
-    { map: 0, x: -3802.201904, y: -2035.119385, z: 153.005646, o: 3.265598 },
-    { map: 0, x: -3845.315918, y: -2034.406982, z: 151.537689, o: 3.104591 },
-    { map: 0, x: -3888.081787, y: -2041.320679, z: 153.979858, o: 4.011725 },
-    { map: 0, x: -3901.075195, y: -2075.000244, z: 162.803833, o: 4.561497 },
-    { map: 0, x: -3878.020996, y: -2125.770996, z: 166.44545, o: 0.171112 },
-  ]);
+  .Spawns.add(
+    MODULE_NAME,
+    "mirehaven-raptor-npc",
+    [
+      { map: 0, x: -3713.015137, y: -1955.034424, z: 167.822647, o: 0.065121 },
+      { map: 0, x: -3659.11377, y: -1965.101074, z: 166.424561, o: 6.089128 },
+      { map: 0, x: -3649.845459, y: -1915.345093, z: 165.50708, o: 1.651628 },
+      { map: 0, x: -3673.599365, y: -1896.574463, z: 166.443588, o: 2.904339 },
+      { map: 0, x: -3725.073486, y: -1894.348145, z: 168.609924, o: 3.171374 },
+      { map: 0, x: -3747.666016, y: -1854.922852, z: 169.171997, o: 1.317834 },
+      { map: 0, x: -3697.198486, y: -1834.044556, z: 167.680786, o: 0.976186 },
+      { map: 0, x: -3701.130371, y: -1799.903564, z: 168.203461, o: 1.655555 },
+      { map: 0, x: -3741.266113, y: -1796.427856, z: 168.692551, o: 2.794383 },
+      { map: 0, x: -3759.275635, y: -1767.776611, z: 168.694504, o: 0.964405 },
+      { map: 0, x: -3757.276855, y: -1916.622437, z: 169.881744, o: 2.452732 },
+      { map: 0, x: -3685.700684, y: -1860.906006, z: 166.418106, o: 1.67126 },
+      { map: 0, x: -3733.943115, y: -1828.661621, z: 168.684647, o: 2.688351 },
+      { map: 0, x: -3726.944336, y: -1988.485474, z: 165.106125, o: 3.505144 },
+      { map: 0, x: -3761.722412, y: -1992.372681, z: 156.641418, o: 3.245962 },
+      { map: 0, x: -3802.201904, y: -2035.119385, z: 153.005646, o: 3.265598 },
+      { map: 0, x: -3845.315918, y: -2034.406982, z: 151.537689, o: 3.104591 },
+      { map: 0, x: -3888.081787, y: -2041.320679, z: 153.979858, o: 4.011725 },
+      { map: 0, x: -3901.075195, y: -2075.000244, z: 162.803833, o: 4.561497 },
+      { map: 0, x: -3878.020996, y: -2125.770996, z: 166.44545, o: 0.171112 },
+    ],
+    (spawn) => spawn.MovementType.RANDOM_MOVEMENT.set().WanderDistance.set(10)
+  )
+  .NormalLoot.modRef((table) =>
+    table.addItem(MIREHAVEN_RAPTOR_MEAT_QUEST_ITEM.ID, 100, 1, 1)
+  );
 
 const MIREHAVEN_RAPTOR_MEAT_QUEST = std.Quests.create(
   MODULE_NAME,
@@ -83,9 +90,19 @@ const MIREHAVEN_RAPTOR_MEAT_QUEST = std.Quests.create(
 
 namespace Translation {
   export function english() {
-    MIREHAVEN_RAPTOR_MEAT_QUEST.Name.enGB.set(
-      "PLACEHOLDER: Mirehaven Raptor Meat"
-    );
+    setQuestText(MIREHAVEN_RAPTOR_MEAT_QUEST, "enGB", {
+      name: "Fresh Raptor Meat",
+      pickup: `Greetings, traveler. The hunters of our village are running low on provisions, and the mayor has requested a special delicacy—raptor meat.  
+
+These beasts roam the wild plains nearby, swift and vicious.  
+Bring back 5 cuts of fresh raptor meat, and you will be well rewarded.  
+
+But beware, raptors do not hunt alone.  
+Stay sharp, and may your blade strike true.`,
+      completeLog: "Return to Mirehaven.",
+      objective: "Bring 5 cuts of fresh raptor meat to the .",
+    });
+
     MIREHAVEN_RAPTOR_MEAT_QUEST_ITEM.Name.enGB.set("Raptor Meat");
     addQuestItemToCreatureTooltip(
       MIREHAVEN_RAPTOR.ID,
@@ -95,6 +112,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

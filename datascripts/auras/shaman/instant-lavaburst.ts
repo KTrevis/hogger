@@ -1,7 +1,5 @@
 import { std } from "wow/wotlk";
-import { Spell } from "wow/wotlk/std/Spell/Spell";
 import { MODULE_NAME } from "../../utils/constants";
-import { translate } from "../../utils/translation";
 
 const LAVA_BURST = std.Spells.load(51505);
 
@@ -57,6 +55,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

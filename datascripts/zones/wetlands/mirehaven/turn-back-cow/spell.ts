@@ -1,11 +1,11 @@
 import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
-import { TURN_BACK_COW_QUESTGIVER } from "./questgiver";
+import { MIREHAVEN_TURN_BACK_COW_QUESTGIVER } from "./questgiver";
 
 std.Spells.create(MODULE_NAME, "mirehaven-cow-kill-credit-spell")
   .Effects.addMod((eff) =>
     eff.Type.KILL_CREDIT2.set()
-      .MiscValueA.set(TURN_BACK_COW_QUESTGIVER.ID)
+      .MiscValueA.set(MIREHAVEN_TURN_BACK_COW_QUESTGIVER.ID)
       .ImplicitTargetA.UNIT_MASTER.set()
   )
   .Tags.addUnique(MODULE_NAME, "mirehaven-cow-kill-credit-spell");

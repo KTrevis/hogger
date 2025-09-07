@@ -1,7 +1,9 @@
 import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../../../utils/constants";
 import { VisualIDs } from "../../../../utils/enums/visuals";
-import { translate } from "../../../../utils/translation";
+import { setQuestText } from "../../../../utils/quest-text";
+import { MIREHAVEN_MAYOR } from "../town-hall/npcs";
+import { MIREHAVEN_BLACKSMITH_QUEST } from "../blacksmith/damaged-weapon.quest";
 
 const COUNTER_AURA = std.Spells.create(
   MODULE_NAME,
@@ -92,6 +94,15 @@ const BOSS = std.CreatureTemplates.create(
     creature.AddAura(COUNTER_AURA_ID, creature);
   });
 
+export const MIREHAVEN_ORC_CAMP_BOSS_QUEST = std.Quests.create(
+  MODULE_NAME,
+  "mirehaven-orc-camp-boss-quest"
+)
+  .Objectives.Entity.add(BOSS.ID, 1)
+  .Questgiver.addCreatureBoth(MIREHAVEN_MAYOR.ID)
+  .Rewards.Difficulty.DIFFICULTY_5.set()
+  .PrevQuest.set(MIREHAVEN_BLACKSMITH_QUEST.ID);
+
 namespace Translation {
   export function english() {
     const TOOLTIP =
@@ -100,9 +111,17 @@ namespace Translation {
       .set("")
       .AuraDescription.enGB.set(TOOLTIP)
       .Description.enGB.set(TOOLTIP);
+    BOSS.Name.enGB.set("Treke").Subname.enGB.set("Warlord");
+
+    setQuestText(MIREHAVEN_ORC_CAMP_BOSS_QUEST, "enGB", {
+      name: "Orc and Treke Down",
+      pickup: `There's an orc in that camp who thinks he's hot stuff—goes by the name of Treke. Calls himself a "warlord", but from what I've seen, he's more “war-snore.” Still, he's got the rest of those green brutes dancing to his drum, and if we don't clip his tusks soon, we'll be knee-deep in orc trouble.
+
+That's where you come in. March into their camp, find Treke, and put him six feet under the dirt he's so proud of stomping on. Do that, and not only will the orcs scatter like rats in daylight, but you'll also have my eternal gratitude—and maybe a little something shiny for your trouble.`,
+      completeLog: "Return to Mirehaven.",
+      objective: "Slay Treke.",
+    });
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

@@ -2,16 +2,17 @@ import { std } from "wow/wotlk";
 import { MODULE_NAME } from "../../../../utils/constants";
 import { AreaIDs } from "../../../../utils/enums/area-ids";
 import { WorldMapAreaIDs } from "../../../../utils/enums/world-map-area";
-import { TURN_BACK_COW_QUESTGIVER } from "./questgiver";
+import { MIREHAVEN_TURN_BACK_COW_QUESTGIVER } from "./questgiver";
+import { setQuestText } from "../../../../utils/quest-text";
 
-export const TURN_BACK_COW_QUEST = std.Quests.create(
+export const MIREHAVEN_TURN_BACK_COW_QUEST = std.Quests.create(
   MODULE_NAME,
   "mirehaven-turn-back-cow-quest"
 )
-  .Objectives.Entity.add(TURN_BACK_COW_QUESTGIVER.ID, 6)
+  .Objectives.Entity.add(MIREHAVEN_TURN_BACK_COW_QUESTGIVER.ID, 6)
   .Name.enGB.set("Turn Back Cow")
   .Tags.addUnique(MODULE_NAME, "mirehaven-turn-back-cow-quest")
-  .Questgiver.addCreatureBoth(TURN_BACK_COW_QUESTGIVER.ID, true)
+  .Questgiver.addCreatureBoth(MIREHAVEN_TURN_BACK_COW_QUESTGIVER.ID, true)
   .POIs.add(
     0,
     [
@@ -30,6 +31,24 @@ export const TURN_BACK_COW_QUEST = std.Quests.create(
   .QuestLevel.set(25)
   .Rewards.Difficulty.DIFFICULTY_5.set();
 
-std.SQL.quest_template
-  .query({ ID: TURN_BACK_COW_QUEST.ID })
-  .ObjectiveText1.set("Turned Back Cow");
+namespace Translation {
+  export function english() {
+    setQuestText(MIREHAVEN_TURN_BACK_COW_QUEST, "enGB", {
+      name: "Turn Back Cows",
+      pickup: `Hey, you! My herd spooked and six cows bolted into the marsh.
+I can't leave the pen or I'll lose the rest.
+
+Please round them up and turn them back this way.
+Give them a firm swat if they get stubborn, but don't hurt them.
+Bring all six home and I'll make it worth your while.`,
+      completeLog: "Return to Mirehaven.",
+      objective: "Turn Back Cows.",
+    });
+
+    std.SQL.quest_template
+      .query({ ID: MIREHAVEN_TURN_BACK_COW_QUEST.ID })
+      .ObjectiveText1.set("Turned Back Cows");
+  }
+}
+
+Translation.english();

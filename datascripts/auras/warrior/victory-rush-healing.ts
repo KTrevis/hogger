@@ -2,7 +2,6 @@ import { std } from "wow/wotlk";
 import { INFINITE_DURATION, MODULE_NAME } from "../../utils/constants";
 import { HEALING_20_PCT } from "../../utils/auras/healing-20-percent";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const VICTORY_RUSH_SPELL = std.Spells.load(34428);
 
@@ -37,6 +36,4 @@ namespace Translation {
   }
 }
 
-translate({
-  enGB: Translation.english,
-});
+Translation.english();

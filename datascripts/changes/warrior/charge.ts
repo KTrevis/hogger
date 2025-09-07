@@ -1,7 +1,6 @@
 import { Languages, Language } from "wow/data/dbc/Localization";
 import { std } from "wow/wotlk";
 import { Spell } from "wow/wotlk/std/Spell/Spell";
-import { translate } from "../../utils/translation";
 
 const CHARGE_IDS = [100, 6178, 11578];
 
@@ -19,9 +18,7 @@ function modCharge(spell: Spell) {
     .ShapeshiftMask.Exclude.set(BigInt(0))
     .ShapeshiftMask.Include.set(BigInt(0));
 
-  translate({
-    enGB: () => Translation.english(spell),
-  });
+    Translation.english(spell);
 }
 
 for (const id of CHARGE_IDS) {

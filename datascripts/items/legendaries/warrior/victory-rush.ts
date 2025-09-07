@@ -1,5 +1,3 @@
-import { ItemTemplate } from "wow/wotlk/std/Item/ItemTemplate";
-import { translate } from "../../../utils/translation";
 import { MODULE_NAME } from "../../../utils/constants";
 import { VICTORY_RUSH_HEALING } from "../../../auras/warrior/victory-rush-healing";
 import { std } from "wow/wotlk";
@@ -25,6 +23,4 @@ namespace ItemTranslation {
   }
 }
 
-translate({
-  enGB: ItemTranslation.english,
-});
+ItemTranslation.english();
